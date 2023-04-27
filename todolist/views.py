@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import ToDo
 
 # Create your views here.
 
 def index(request):
-	return HttpResponse("Hello world!")
+	todos = ToDo.objects.all(ToDo)
+	return render(request, 'todocore/index.html', {'todo_list': todos, 'title': 'Главная страница'} )
